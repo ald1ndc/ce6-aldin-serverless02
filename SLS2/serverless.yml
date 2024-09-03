@@ -8,6 +8,7 @@ service: SLS2
 provider:
   name: aws
   runtime: nodejs20.x
+  region: ap-southeast-1
 
 functions:
   hello:
@@ -16,6 +17,11 @@ functions:
       - httpApi:
           path: /
           method: get
+      - sqs:
+          arn: arn:aws:sqs:ap-southeast-1:255945442255:AldinQueue
+          batchSize: 10
+          maximumBatchingWindow: 60
+          functionResponseType: ReportBatchItemFailures
 plugins:
   - serverless-offline
 
