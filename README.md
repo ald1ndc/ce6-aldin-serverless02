@@ -32,7 +32,7 @@ sls deploy
 11. Create new SQS on the console
 12. Add that SQS as part of your event source for your lambda function
 ```
-- sqs:
+       - sqs:
           arn: arn:aws:sqs:region:XXXXXX:myQueue
           batchSize: 10
           maximumBatchingWindow: 60
