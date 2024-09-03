@@ -13,8 +13,16 @@ Serverless with lambda function
 plugins: -serverless-offline
 ```
 
-7. Run npm install serverless-offline
-8. Test using "serverless offline"
+7. Run 
+
+```
+npm install serverless-offline
+```
+
+8. Test using 
+```
+serverless offline
+```
 9. Push updates to repo
 10. Deploy lambda
 ```
