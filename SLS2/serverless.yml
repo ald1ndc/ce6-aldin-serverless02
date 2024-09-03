@@ -22,6 +22,19 @@ functions:
           batchSize: 10
           maximumBatchingWindow: 60
           functionResponseType: ReportBatchItemFailures
+#      - sqs :
+#          arn:
+#          Fn: GetAtt:
+#           - AldinQueue2
+#           - Arn
+
+ resources:
+  Resources:
+    MyQueue:
+      Type: "AWS::SQS::Queue"
+      Properties:
+        QueueName: "AldinQueue2"
+         
 plugins:
   - serverless-offline
 
