@@ -28,13 +28,44 @@ functions:
 #           - AldinQueue2
 #           - Arn
 
- resources:
+resources:
   Resources:
     MyQueue:
       Type: "AWS::SQS::Queue"
       Properties:
         QueueName: "AldinQueue2"
-         
+    SuperTopic:
+      Type: "AWS::SNS::Topic"
+      Properties:
+        TopicName: "MyCustomTopic"
+
+functions:
+  hello2:
+    handler: handler.hello2
+    events:
+      - s3:
+          bucket: ce6-aldin-lambda-fn2
+          event: s3:ObjectCreated:*
+      - s3:
+          bucket: ce6-aldin-lambda-fn2
+          event: s3:ObjectRemoved:*  
+#      - sqs:
+#          arn: arn:aws:sqs:ap-southeast-1:255945442255:AldinQueue
+#          batchSize: 10
+#          maximumBatchingWindow: 60
+#          functionResponseType: ReportBatchItemFailures
+
+functions:
+  hello3:
+    handler: handler.hello3
+    events:
+      - httpApi:
+          path: /hello3
+          method: get
+      - sns:
+          arn: !Ref Topic
+          topicName: MyCustomTopic
+
 plugins:
   - serverless-offline
 
