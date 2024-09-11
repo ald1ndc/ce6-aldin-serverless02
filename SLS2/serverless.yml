@@ -65,6 +65,8 @@ functions:
       - sns:
           arn: !Ref Topic
           topicName: MyCustomTopic
+          
+#reference this https://www.serverless.com/framework/docs/providers/aws/events/sns
 
 plugins:
   - serverless-offline
