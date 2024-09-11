@@ -13,24 +13,28 @@ Serverless with lambda function
 plugins: -serverless-offline
 ```
 
-7. Run 
+7. Run
 
 ```
 npm install serverless-offline
 ```
 
-8. Test using 
+8. Test using
+
 ```
 serverless offline
 ```
+
 9. Push updates to repo
 10. Deploy lambda
+
 ```
 sls deploy
 ```
 
 11. Create new SQS on the console
 12. Add that SQS as part of your event source for your lambda function
+
 ```
        - sqs:
           arn: arn:aws:sqs:region:XXXXXX:myQueue
@@ -38,8 +42,12 @@ sls deploy
           maximumBatchingWindow: 60
           functionResponseType: ReportBatchItemFailures
 ```
+
 Taken from URL, https://www.serverless.com/framework/docs/providers/aws/events/sqs
 
 13. Deploy again
 14. Commit all the code
-
+15. For S3, you can refer to this for more info, https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
+16. Create a bucket and take note of name.
+17. Create a policy and attched to bucket.
+18. Update the header.js and serverless.yml
