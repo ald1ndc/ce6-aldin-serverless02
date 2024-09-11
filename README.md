@@ -51,3 +51,23 @@ Taken from URL, https://www.serverless.com/framework/docs/providers/aws/events/s
 16. Create a bucket and take note of name.
 17. Create a policy and attched to bucket.
 18. Update the header.js and serverless.yml
+19. For SNS, you can refer to this link for configuration, https://www.serverless.com/framework/docs/providers/aws/events/sns
+```
+functions:
+  dispatcher:
+    handler: dispatcher.dispatch
+    events:
+      - sns:
+          arn: !Ref SuperTopic
+          topicName: MyCustomTopic
+resources:
+  Resources:
+    SuperTopic:
+      Type: AWS::SNS::Topic
+      Properties:
+        TopicName: MyCustomTopic
+```
+20. Then update the header.js and serverless.yml files.
+21. Also commit and push to repository
+
+
