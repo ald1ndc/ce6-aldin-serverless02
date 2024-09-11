@@ -49,6 +49,7 @@ functions:
       - s3:
           bucket: ce6-aldin-lambda-fn2
           event: s3:ObjectRemoved:*  
+#Refernce this link https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
 #      - sqs:
 #          arn: arn:aws:sqs:ap-southeast-1:255945442255:AldinQueue
 #          batchSize: 10
@@ -65,7 +66,7 @@ functions:
       - sns:
           arn: !Ref Topic
           topicName: MyCustomTopic
-          
+
 #reference this https://www.serverless.com/framework/docs/providers/aws/events/sns
 
 plugins:
